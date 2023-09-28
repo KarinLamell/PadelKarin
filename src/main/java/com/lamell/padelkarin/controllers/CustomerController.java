@@ -1,10 +1,10 @@
 package com.lamell.padelkarin.controllers;
 
 import com.lamell.padelkarin.model.Customer;
-import com.lamell.padelkarin.services.CourtService;
 import com.lamell.padelkarin.services.CustomerService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    private static final Logger logger = LogManager.getLogger(CustomerService.class);
+    private static final Logger logger = LogManager.getLogger(CustomerController.class);
 
     @GetMapping("/customers")
     public List<Customer> getAllCustomers() {

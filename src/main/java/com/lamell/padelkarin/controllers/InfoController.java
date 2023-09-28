@@ -2,8 +2,9 @@ package com.lamell.padelkarin.controllers;
 
 import com.lamell.padelkarin.model.Info;
 import com.lamell.padelkarin.services.InfoService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class InfoController {
         this.infoService = infoService;
     }
 
-    private static final Logger logger = LogManager.getLogger(InfoService.class);
+    private static final Logger logger = LogManager.getLogger(InfoController.class);
 
     @GetMapping("/infotext")
     public List<Info> getAllInfos() {

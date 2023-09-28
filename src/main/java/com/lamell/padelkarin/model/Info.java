@@ -1,5 +1,6 @@
 package com.lamell.padelkarin.model;
 
+
 import jakarta.persistence.*;
 
 @Entity

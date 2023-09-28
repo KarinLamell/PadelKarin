@@ -49,6 +49,7 @@ public class CourtService implements CourtServiceInterface{
 
     @Override
     public void deleteCourt(int courtId) {
-        Court c = courtRepository.findById(courtId).orElseThrow(()->new ResourceNotFoundException("Court", "Id", courtId));
+        courtRepository.findById(courtId).orElseThrow(()->new ResourceNotFoundException("Court", "Id", courtId));
+        courtRepository.deleteById(courtId);
     }
 }

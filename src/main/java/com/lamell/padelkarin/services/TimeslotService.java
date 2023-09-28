@@ -1,6 +1,7 @@
 package com.lamell.padelkarin.services;
 
 import com.lamell.padelkarin.exceptions.ResourceNotFoundException;
+
 import com.lamell.padelkarin.model.Timeslot;
 import com.lamell.padelkarin.repositories.TimeslotRepository;
 import org.apache.logging.log4j.LogManager;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 
 @Qualifier("timeslot")
 @Service
@@ -73,6 +75,7 @@ public class TimeslotService implements TimeslotServiceInterface{
     @Override
     public void deleteTimeslot(int timeslotId) {
 
-        Timeslot s = timeslotRepository.findById(timeslotId).orElseThrow(()->new ResourceNotFoundException("Slot-time", "Id", timeslotId));
+        timeslotRepository.findById(timeslotId).orElseThrow(()->new ResourceNotFoundException("Slot-time", "Id", timeslotId));
+        timeslotRepository.deleteById(timeslotId);
     }
 }

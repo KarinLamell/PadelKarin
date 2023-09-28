@@ -1,6 +1,10 @@
 package com.lamell.padelkarin.model;
 
+
 import jakarta.persistence.*;
+
+import java.util.List;
+
 
 @Entity
 @Table
@@ -18,8 +22,8 @@ public class Booking {
     @OneToOne
     private Court court;
 
-    @ManyToOne
-    private Timeslot timeslot;
+    @OneToMany
+    private List<Timeslot> timeslot;
 
     //Constructors
 
@@ -27,7 +31,7 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(int bookingId, long totalBookingPriceSEK, Customer customer, Court court, Timeslot timeslot) {
+    public Booking(int bookingId, long totalBookingPriceSEK, Customer customer, Court court, List<Timeslot> timeslot) {
         this.bookingId = bookingId;
         TotalBookingPriceSEK = totalBookingPriceSEK;
         this.customer = customer;
@@ -47,7 +51,8 @@ public class Booking {
     }
 
     public long getTotalBookingPriceSEK() {
-        return TotalBookingPriceSEK;
+
+        return timeslot.size()*court.getPricePerHourSEK();
     }
 
     public void setTotalBookingPriceSEK(long totalBookingPriceSEK) {
@@ -70,11 +75,11 @@ public class Booking {
         this.court = court;
     }
 
-    public Timeslot getTimeslot() {
+    public List<Timeslot> getTimeslot() {
         return timeslot;
     }
 
-    public void setTimeslot(Timeslot timeslot) {
+    public void setTimeslot(List<Timeslot> timeslot) {
         this.timeslot = timeslot;
     }
 }

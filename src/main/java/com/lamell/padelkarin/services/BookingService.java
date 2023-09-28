@@ -2,6 +2,7 @@ package com.lamell.padelkarin.services;
 
 import com.lamell.padelkarin.exceptions.ResourceNotFoundException;
 import com.lamell.padelkarin.model.Booking;
+import com.lamell.padelkarin.model.Timeslot;
 import com.lamell.padelkarin.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,11 +18,24 @@ public class BookingService implements BookingServiceInterface{
     @Autowired
     private BookingRepository bookingRepository;
 
+    @Autowired
+    private TimeslotService timeslotService;
+
+    @Autowired
+    private CustomerService customerService;
+
+
     public BookingService() {
     }
 
     @Override
     public Booking saveBooking(Booking booking) {
+        for (Timeslot time: booking.getTimeslot()
+             ) {
+            time.setAvailable(false);
+            timeslotService.saveTimeslot(time);
+        }
+
         return bookingRepository.save(booking);
     }
 
@@ -31,20 +45,18 @@ public class BookingService implements BookingServiceInterface{
     }
 
     @Override
-    public Booking getBookingById(int bookingId) {
-        Optional<Booking> booking = bookingRepository.findById(bookingId);
-        if (booking.isPresent()) {
-            return booking.get();
-        } else {
-            throw new ResourceNotFoundException("Booking", "Id", booking);
+    public List<Booking> getBookingById(int customerId) {
+        List<Booking> bookings = bookingRepository.getBookingsByCustomer_CustomerId(customerId);
+
+            return bookings;
         }
-    }
+
 
     @Override
     public Booking updateBooking(Booking booking, int bookingId) {
         Booking b = bookingRepository.findById(bookingId).orElseThrow(()->new ResourceNotFoundException("Booking", "Id", booking));
         b.setTotalBookingPriceSEK(booking.getTotalBookingPriceSEK());
-        b.setCourt(b.getCourt());
+        b.setCourt(booking.getCourt());
         b.setTimeslot(booking.getTimeslot());
         bookingRepository.save(b);
         return b;
@@ -53,6 +65,7 @@ public class BookingService implements BookingServiceInterface{
     @Override
     public void deleteBooking(int bookingId) {
 
-        Booking b = bookingRepository.findById(bookingId).orElseThrow(()->new ResourceNotFoundException("Booking", "Id", bookingId));
+        bookingRepository.findById(bookingId).orElseThrow(()->new ResourceNotFoundException("Booking", "Id", bookingId));
+        bookingRepository.deleteById(bookingId);
     }
 }
