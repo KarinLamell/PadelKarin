@@ -39,6 +39,7 @@ public class CourtController {
     @DeleteMapping("deletecourt/{id}")
     public ResponseEntity<String> deleteCourt(@PathVariable("id") int courtId){
         courtService.deleteCourt(courtId);
+        logger.info("Admin deleted court");
         return new ResponseEntity<>(("Court deleted!"), HttpStatus.OK);
     }
 }
