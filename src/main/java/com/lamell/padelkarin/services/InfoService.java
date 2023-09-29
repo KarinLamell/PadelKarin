@@ -3,9 +3,6 @@ package com.lamell.padelkarin.services;
 import com.lamell.padelkarin.exceptions.ResourceNotFoundException;
 import com.lamell.padelkarin.model.Info;
 import com.lamell.padelkarin.repositories.InfoRepository;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

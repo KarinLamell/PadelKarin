@@ -1,8 +1,6 @@
 package com.lamell.padelkarin.model;
 
-
 import jakarta.persistence.*;
-
 @Entity
 //@Table(name = "customer")
 public class Customer {

@@ -6,6 +6,7 @@ import com.lamell.padelkarin.services.InfoService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,5 +34,12 @@ public class InfoController {
     public ResponseEntity<Info> updateInfo(@RequestBody Info info){
         logger.info("Admin updated infotext");
         return ResponseEntity.ok(infoService.updateInfo(info, info.getInfoId()));
+    }
+
+    @DeleteMapping("/deleteinfo/{id}")
+    public ResponseEntity<String> deleteInfo(@PathVariable("id") int infoId){
+        infoService.deleteInfo(infoId);
+        logger.info("Admin deleted court");
+        return new ResponseEntity<>(("Court deleted!"), HttpStatus.OK);
     }
 }

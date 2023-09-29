@@ -1,13 +1,7 @@
-2023-09-28 09:18:06,819   [INFO  |  com.lamell.padelkarin.controllers.InfoController  updateInfo]  |   Admin updated infotext
-2023-09-28 10:28:18,634   |INFO  |  com.lamell.padelkarin.controllers.InfoController | updateInfo  |   Admin updated infotext
-2023-09-28 10:29:37,665   |INFO  |   Admin updated infotext
-2023-09-28 15:57:00,090   |INFO  |   User registered new booking
-2023-09-28 15:59:27,434   |INFO  |   User registered new booking
-2023-09-28 16:17:54,221   |INFO  |   User registered new booking
-2023-09-28 16:18:44,639   |INFO  |   User registered new booking
-2023-09-28 16:21:19,393   |INFO  |   User registered new booking
-2023-09-28 16:21:36,995   |INFO  |   User registered new booking
-2023-09-28 16:23:22,058   |INFO  |   User registered new booking
-2023-09-28 16:25:37,091   |INFO  |   User registered new booking
-2023-09-28 18:10:11,214   |INFO  |   User registered new booking
-2023-09-28 18:10:35,914   |INFO  |   User registered new booking
+2023-09-29 08:52:28,131   |INFO  |   Admin updated infotext
+2023-09-29 08:53:40,757   |INFO  |   Admin updated infotext
+2023-09-29 08:54:32,243   |INFO  |   User registered new booking
+2023-09-29 10:23:07,826   |INFO  |   Admin updated infotext
+2023-09-29 10:24:01,371   |INFO  |   User registered new booking
+2023-09-29 10:24:19,618   |INFO  |   User registered new booking
+2023-09-29 10:24:48,902   |INFO  |   User registered new booking

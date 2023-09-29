@@ -1,9 +1,7 @@
 package com.lamell.padelkarin.controllers;
 
 import com.lamell.padelkarin.model.Court;
-import com.lamell.padelkarin.services.BookingService;
 import com.lamell.padelkarin.services.CourtService;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

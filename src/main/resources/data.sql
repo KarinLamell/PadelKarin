@@ -1,6 +1,6 @@
 INSERT INTO customer(city, e_mail,first_name, last_name, phone, postal_code,street, user_name)
 VALUES
-    ('Solöga','anna"email.com','Anna','Andersson','0701012345','12345','Maskrosvägen 8','annapanna'),
+    ('Solöga','anna"email.com','Annika','Andersson','0701012345','12345','Maskrosvägen 8','anki'),
     ('Solöga','bertil@email.com','Bertil','Borg','0702023456','12345','Maskrosvägen 8','berra'),
     ('Lilleby','cissi@email.com','Cissi','Cikada','0703033456','23456','Sotargatan 4','cikada'),
     ('Lilleby','daniel@email.com','Daniel','Druva','0704043456','23456','Sotargatan 4','druvor'),
